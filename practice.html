@@ -1,40 +1,25 @@
-<style>
-  body {
-  background-color: #F0F8FF;
-  }
-  .tarot{
-    color: #A9A9A9;
-      font-family "Garamond", serif;}
-          
-  .major {
-    color: #696969;
-      font-family: "helvetica", sans-serif;}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#w3s").attr({
+      "href" : "https://www.w3schools.com/jquery/",
+      "title" : "W3Schools jQuery Tutorial"
+    });
+  });
+});
+</script>
+</head>
+<body>
 
-  .list {
-    color: #808080;
-      font-family: "Courier New", monospace;}
-  </style> 
+<p><a href="https://www.w3schools.com" title="some title" id="w3s">W3Schools.com</a></p>
 
-  <style>
-body{
-  background-color: #F0F8FF;
-  }
-  .tarot{
-    color: red;
-      font-family: "Brush Script MT", cursive;}
-          
-  .major {
-    color: green;
-      font-family: Copperplate, Papyrus, fantasy;}
+<button>Change href and title</button>
 
-  .list {
-    color: blue;
-      font-family: "Courier New", monospace;}
-  </style> 
+<p>Mouse over the link to see that the href attribute has changed and a title attribute is set.</p>
 
-    <h2>Example of a Major Arcana</h2>
-  <img src="major_arcana_fool.png" alt="The Fool"
-  width"500" height="333">
-
-table, td, th {
-  border-collapse: collapse} 
+</body>
+</html>
