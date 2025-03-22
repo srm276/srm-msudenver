@@ -43,8 +43,11 @@ $(document).ready( function() {
 
  $("img").toggle();
  });
- });
-
+$("#?").click(function() {
+          console.log("clicked the '?' button");
+          $("#hidden_text").text("But nothing happened");
+        });
+});
     
   </script>
   
@@ -217,5 +220,10 @@ $(document).ready( function() {
       <td>Completion, Accomplishment, Travel</td>
     </tr>
 </div>
+  
 </body>
+  <div id="hidden_text">
+    <button id= "?">
+    </button>
+  </div>
 </html>
