@@ -36,15 +36,20 @@
 
   <script>
 
- $(document).ready( function() {
- // your code will go in here.
- $("#button1").click( function() {
- // if someone clicks on button1, this runs!
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+</script>
 
- $("img").toggle();
- });
- });
- </script>
+<p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
   
 <div class="header">
   <h1>The Tarot</h1>
