@@ -37,25 +37,23 @@
   <script>
 
 $(document).ready(function(){
-  $("#hide").click(function(){
-    $("p").hide();
-  });
-  $("#show").click(function(){
-    $("p").show();
-  });
+    // your code will go in here.
+ $("#button1").click( function() {
+ // if someone clicks on button1, this runs!
+
+ $("img").toggle();
 });
-</script>
 
-<p>If you click on the "Hide" button, I will disappear.</p>
+  </script>
 
-<button id="hide">Hide</button>
-<button id="show">Show</button>
+
   
 <div class="header">
   <h1>The Tarot</h1>
 </div>
   
-<body>  
+<body>
+  <button id="button1">Click here to do something.</button>
   <figure>
   <img src="major_arcana_fool.png" alt="The Fool"
     width=200px height=333px>
@@ -219,6 +217,6 @@ $(document).ready(function(){
       <td>Completion, Accomplishment, Travel</td>
     </tr>
 </div>
-  <button id="button1">Click here to do something.</button>
+
 </body>
 </html>
