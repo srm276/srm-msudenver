@@ -1,1 +1,154 @@
 
+
+<!doctype html>
+<html>
+  <head>
+    <title>Mini Project 2</title>
+    <style>
+      h1{
+        text-align: center;
+      }
+      p{
+        text-align: center;
+      }
+      img{
+      display: hidden;
+      }
+      #alphabet {
+        font-family: "Times New Roman", Times, serif;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        font-size:22px;
+        font-weight: bold;
+      }
+      #word { 
+        font-family: "Times New Roman", Times, serif;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        font-size:20px;
+      }
+      #info { 
+        padding: 20px; 
+        font-color: red;
+        background-color: thistle; 
+        font-family: "Times New Roman", Times, serif;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        font-size:20px;
+        font-weight: bold;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Declare variables with proper scope
+        var word = "r u t a b a g a";  // Secret word
+        var blank = "- - - - - - - -";  // Initial blank spaces
+        $("#word").text(blank);
+
+        var triedLetters = "";  // List of tried letters
+        var tries = 10;  // Number of tries left
+        $("#guesses").text("Guesses left: " + tries);
+
+        var gameWon = false;  // Track game state
+        var gameLost = false;
+
+        $(".letter").click(function() {
+          // Check if the game has been won or lost
+          if (!gameWon && !gameLost) {
+            // Clear the info box
+            $("#info").text("");
+
+            // Get the clicked letter
+            var letter = $(this).text();
+            console.log("clicked on: ", letter);
+
+            // "Erase" the guessed letters
+            $(this).css("text-decoration", "line-through");
+
+            // Check if the letter was already guessed
+            if (triedLetters.includes(letter)) {
+              $("#info").text("" + letter + " already tried.");
+            }
+            // If the letter isn't in the word, reduce tries and check for game over
+            else if (!word.includes(letter)) {
+              // Reduce the number of remaining tries
+              tries -= 1;
+              $("#guesses").text("Guesses Left: " + tries);
+
+              // If out of tries, the player loses
+              if (tries < 1) {
+                gameLost = true;
+                
+                $("#info").text("YOU LOSE! The answer was rutabaga.");
+              }
+            }
+            // If the letter is in the word, update the display
+            else {
+              // Update blanks with the guessed letter
+              while (word.includes(letter)) {
+                var index = word.indexOf(letter);
+                word = word.substring(0, index) + " " + word.substring(index + 1);
+                blank = blank.substring(0, index) + letter + blank.substring(index + 1);
+
+                $("#word").text(blank);
+                console.log("word is ", word);
+                console.log("blank is ", blank);
+              }
+
+              // Check if the player has won
+              if (!blank.includes("-")) {
+                gameWon = true;
+                $("#info").text("Congratulations YOU WIN!");
+              }
+            }
+
+            // Add the letter to the list of tried letters
+            triedLetters += letter;
+            console.log("triedLetters is ", triedLetters);
+            console.log("word is", word);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Let's play Hangman!</h1>
+    <div id="guesses"></div>
+    <div id="info"></div>
+    <div id="word"></div>
+    <div id="alphabet">
+      <p>Click a letter to make a guess!</p>
+      <span class="letter" id="a">a</span>
+      <span class="letter" id="b">b</span>
+      <span class="letter" id="c">c</span>
+      <span class="letter" id="d">d</span>
+      <span class="letter" id="e">e</span>
+      <span class="letter" id="f">f</span>
+      <span class="letter" id="g">g</span>
+      <span class="letter" id="h">h</span>
+      <span class="letter" id="i">i</span>
+      <span class="letter" id="j">j</span>
+      <span class="letter" id="k">k</span>
+      <span class="letter" id="l">l</span>
+      <span class="letter" id="m">m</span>
+      <span class="letter" id="n">n</span>
+      <span class="letter" id="o">o</span>
+      <span class="letter" id="p">p</span>
+      <span class="letter" id="q">q</span>
+      <span class="letter" id="r">r</span>
+      <span class="letter" id="s">s</span>
+      <span class="letter" id="t">t</span>
+      <span class="letter" id="u">u</span>
+      <span class="letter" id="v">v</span>
+      <span class="letter" id="w">w</span>
+      <span class="letter" id="x">x</span>
+      <span class="letter" id="y">y</span>
+      <span class="letter" id="z">z</span>
+    </div>
+  </body>
+</html>
+
