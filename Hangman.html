@@ -12,7 +12,7 @@
             }
       #info { padding: 20px; 
               font-color: red;
-              background-color: #00BFF; 
+              background-color: DeepSkyBlue; 
             }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -45,22 +45,57 @@
                     // make a line through the letter
                     $(this).css("text-decoration", "line-through");
 
-                     // Check if the letter was already guessed
-            if (triedLetters.includes(letter)) {
-              $("#info").text("" + letter + " already tried.");
+               // if the letter has already been clicked,
+              // let user know its been tried
+                    
+              if (triedLetters.includes (letter)) {
+                $("#info").text("Letter " + letter + "already tried.");
+
+
+                // If the letter isn't in the word, reduce tries and check for game over
+            else if (!word.includes(letter)) {
+              // Reduce the number of remaining tries
+              tries -= 1;
+              $("#guesses").text("Guesses Left: " + tries);
+
+              // If out of tries, the player loses
+              if (tries < 1) {
+                gameLost = true;
+
+                $("#info").text("Sorry, you lose!");
+                }
+              }
+
+                    // If the letter is in the word, update the display
+            else {
+              // Update blanks with the guessed letter
+              while (word.includes(letter)) {
+                var index = word.indexOf(letter);
+                word = word.substring(0, index) + " " + word.substring(index + 1);
+                blank = blank.substring(0, index) + letter + blank.substring(index + 1);
+
+                $("#word").text(blank);
+                console.log("word is ", word);
+                console.log("blank is ", blank);
+              }
+
+              // Check if the player has won
+              if (!blank.includes("-")) {
+                gameWon = true;
+                $("#info").text("WINNER!");
+              }
             }
 
-                // if the letter isn't in the word, reduce tries
-                    
-                    // the number of tries and check if they lost
-                    } else if (! word.includes(letter)) {
-
-                      // reduce the number of remaining tries by 1
-
-
-                      // are they out of tries? then they lost!
-
-                    
+            // Add the letter to the list of tried letters
+            triedLetters += letter;
+            console.log("triedLetters is ", triedLetters);
+            console.log("word is", word);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body> 
                     
                     // otherwise, put a line through it and
                     // add it to the found letters
