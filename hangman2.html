@@ -18,7 +18,70 @@
     < <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
       <script>
-        
+        $(document).ready ( function() {
+          // this is the word
+          word = " m a j o r";
+          blank ="_ _ _ _ _";
+          $("#word").text(blank);
+          
+          // this is the list of letters that have been tried
+          triedLetters = "";
+
+          //this is the number of tries left
+          tries = 10;
+          $("guesses").text("Guesses left: "+tries);
+
+          // boolean (true / false variable) to track if game has been won or lost
+          gameWon = false;
+          gameLost = false;
+          // when user clicks a letter
+          $(".letter".click( function() {
+
+            //check if game won or lost
+            if (gameWon != true && gameLost != true) {
+              // erase the info box
+              $("info".text("");
+
+              // use text get letter clicked
+              letter = $(this).text();
+              console.log("clicked on: ", letter)
+
+              // make line through letter
+              $(this).css("text-decoration", "line-through");
+
+              // if the letter has already been clicked,
+              // let user know its been tried
+              if (triedLetters.includes (letter)) {
+                $("#info").text("Letter " + letter + "already tried.");
+
+                // if the letter isn't in the word, reduce
+                // the number of tries and check if lost
+              } else if ( ! word.includes(letter)){
+
+                // reduce the number of remaining tries by 1
+                tries = tries - 1;
+                $("guesses").text("Mistakes,  left: " + tries);
+
+                //are they out of tries? Lost!
+                if (tries < 1) {
+                  gameLost = true; 
+                  $("#info").text("Sorry, no more guesses!");
+                }
+
+                // otherwise, put a line through it and and
+                // add it to the found letters
+                // and check if the player won or lost
+              } else {
+
+                // replace the blanks in the blanks variable
+                // with the letter that was clicked on
+                // replace the blanks with letter in blank
+                // and replace the letters with blanks in word
+                while (word.includes(letter)) {
+                  index = word.indexof(letter);
+                  console.log("index of 
+                
+                
       </script>
   </head>
 </html>
