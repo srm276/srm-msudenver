@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Hangman!</title>
+    <title>Mini Project 2: Hangman</title>
     <style>
       #alphabet { margin: auto;
                   padding: 20px; }
@@ -12,46 +12,46 @@
             }
       #info { padding: 20px; 
               font-color: red;
-              background-color: yellow; 
+              background-color: #00BFF; 
             }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
          $(document).ready( function() {
               // this is the secret word!
-              word =  "y o u r w o r d";
-              blank = "- - - - - - - -";
+              word =  "t e m p e r a n c e";
+              blank = "- - - - - - - - - -";
               $("#word").text(blank);
 
-              // this is the list of letters that have been tried
-              triedLetters = "";
-
-              // this is the number of tries left
-              tries = 10;
+           var triedLetters = "";  // list of tried letters
+           var tries = 10;  //Number of tries left
               $("#guesses").text("Guesses left: "+tries);
 
               // boolean (true / false variable) to track if game has been won or lost
               gameWon = false;
               gameLost = false;
                    
-              // when a user clicks on a letter... this is where everything happens!
               $(".letter").click( function() {
 
                   // check if the game has been won or lost
                   if (gameWon != true && gameLost != true) {
                     // erase the info box
+                    $("#info").text("");
 
-                
-                    // use text to get the letter that was clicked on
-
+                   // get clicked letter
+                var letter = $(this).text();
+            console.log("clicked on: ", letter);
 
                     // make a line through the letter
+                    $(this).css("text-decoration", "line-through");
 
-                    // if the letter has already been clicked on, 
-                    // let the user know it's already been tried
-                    if (triedLetters.includes(letter)) {
+                     // Check if the letter was already guessed
+            if (triedLetters.includes(letter)) {
+              $("#info").text("" + letter + " already tried.");
+            }
 
-                    // if the letter isn't in the word, reduce
+                  // if the letter isn't in the word, reduce tries
+                    
                     // the number of tries and check if they lost
                     } else if (! word.includes(letter)) {
 
