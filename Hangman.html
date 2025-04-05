@@ -18,20 +18,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
          $(document).ready( function() {
-              // this is the secret word!
-              word =  "t e m p e r a n c e";
-              blank = "- - - - - - - - - -";
+              // choosen word
+              word =  "t e m p e r a n c e"; // Secret word
+              blank = "- - - - - - - - - -"; // blank spaces
               $("#word").text(blank);
 
            var triedLetters = "";  // list of tried letters
            var tries = 10;  //Number of tries left
-              $("#guesses").text("Guesses left: "+tries);
+              $("#guesses").text("Guesses left: "+ tries);
 
               // boolean (true / false variable) to track if game has been won or lost
               gameWon = false;
               gameLost = false;
                    
-              $(".letter").click( function() {
+              $(".letter").click(function() {
 
                   // check if the game has been won or lost
                   if (gameWon != true && gameLost != true) {
