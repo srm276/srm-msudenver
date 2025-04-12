@@ -60,7 +60,7 @@
      
 <script>
      //change coordinates
-      var map = L.map('map').setView([57.7089, 11.9746], 13);
+      var map = L.map('map').setView([57.7089, 11.9746], 12);
      
      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
      maxZoom: 19,
@@ -75,11 +75,11 @@
      marker.bindPopup("<b>Gothenburg Central Station</b><br>Train Station").openPopup();
 
      //circle
-     var circle = L.circle([57.68411139917333, 11.944710272905352], {
-          color: 'ForestGreen',
-           radius: 500  
+     var circle = L.circle([57.68703060255799, 11.941826887034305], {
+          color: 'Olive',
+           radius: 700  
 }).addTo(map);
-     
+     circle.bindPopup("<b>Slottskogen (The Castle Forest)</b><br>137-hectare park. Contains dog park, a zoo, picnic areas and playground for various sports") .openPopup();
 
      
           
