@@ -47,7 +47,7 @@
 	$(document).ready(function() {
 
 		// let's create our basemap! -- ##1 here
-		
+		map = L.map('map').setView([0.0], 10});
 		
 		// let's add three sets of background tiles - one from OSM,  one from HOT OSM, and one from openTopoMap
 		var OSMTiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
