@@ -75,7 +75,7 @@ var layerControl = L.control.layers(baseMaps, null).addTo(map);
 	acsdenver2021Layer = L.geoJSON(data).addTo(map);
 		
 		// move the map to the area of the data
-	map.panTo(acsDenver2021Layer.getBounds().getCenter());
+	map.panTo(acsdenver2021Layer.getBounds().getCenter());
 
 		// add the layer to layercontrol'
 	layerControl.addOverlay(acsdenver2021Layer, "Census 2021");
