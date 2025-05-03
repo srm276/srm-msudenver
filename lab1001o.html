@@ -36,7 +36,8 @@
 		}
 		
 		a { text-decoration: none; color: inherit; }
-
+		
+	// legend style
     .legend {
       line-height: 18px;
       color: #555;
@@ -51,6 +52,7 @@
       margin-right: 8px;
       opacity: 0.8;
     }
+		
 	</style>
 
 <script>
@@ -126,7 +128,8 @@
 			newLayer = L.geoJSON(data);
 			layerControl.addOverlay(newLayer, "RTD Park-N-Ride");
 		});
-    
+
+		// legend item
     var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
