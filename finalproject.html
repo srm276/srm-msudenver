@@ -37,6 +37,9 @@ var layerControl = L.control.layers(baseMaps, null).addTo(map);
           });
      $.getJSON('./coloradocensusdata2020.geojson', function(data) {
           coloradocensusdata2020Layer = L.geoJSON(data).addTo(map);
+          	});
+	});
+
 
 
 </script>
